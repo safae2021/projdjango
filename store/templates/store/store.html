@@ -1,0 +1,221 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comfortable Home</title>
+    
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- custom css file link  -->
+    
+    <link rel="icon" type="image/x-icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+</head>
+<body>
+
+    <header>
+
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+    
+        <a href="#" class="logo">Comfy</a>
+    
+        <nav class="navbar">
+            <a href="{% url 'home'%}">home</a>
+            <a href="{% url 'store'%}">Store</a>
+            <a href="{% url 'customercare'%}">Customer care</a>
+            <a href="{% url 'contacts' %}">Contacts</a>
+            <a href="{% url 'shoppingbag' %}">Shopping bag (<span id="cartnum-items">0</span>)  </a>
+        </nav>
+    
+      
+    </header>
+
+
+<section class="contentstore" id="contentstore">
+    <div>
+    <h1 id="h2">IT'S EASY</h1>
+    <h3 id="h3">Create your  <br>space with our  <br>furniture</h3>
+    <div id="par">
+        <div>
+            We have made quality our habit. It’s not something that 
+            <p> we just strive for – we live by this principle every day.  </p>
+        <p> While most of the things about the creative process will </p>
+        <br>
+        <p>be forgotten, the 
+            excellence of our products and </p>services will be remembered.
+        </div>
+    </div>
+    </div>
+</section>
+<div class="logo">
+   <div href="#" class="logo-link">
+    
+    <div class="Favorites" >
+        <i class="fa fa-heart-o" style="font-size:25px;color:#757575"> </i>
+        <a href="{% url 'favorites' %}">Favorites </a>
+    </div>
+    <div class="Shopping" >
+        <i class="fas fa-shopping-bag"style="font-size:25px;color:#757575"> </i>
+        <a href="{% url 'shoppingbag' %}">Shopping Bag</a>
+    </div>
+</div>
+  </div>
+
+<section class="products" id="products">
+
+
+    <div class="box-container">
+
+        <div class="box">
+                <div class="image">
+                <img class="img" src="../static/images/colored.jpg" alt="">
+                <div class="icons">
+                    <button  onclick="toggleHeartIcon(this)" class=" AddToFavButton" ><i class="fas fa-heart "></i></button>
+                    <button  class="cart-btn addcart" onclick="addToCart(this)" >add to cart</button>
+                    
+                </div>
+            </div>
+            <div class="content">
+                <h3 class="title">colored chairs</h3>
+                <div class="price"> $122.99  </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img class="img" src="../static/images/desk.jpg" alt="">
+                <div class="icons">
+                    <button  onclick="toggleHeartIcon(this)" class=" AddToFavButton" ><i class="fas fa-heart "></i></button>
+                    <button  class="cart-btn addcart" onclick="addToCart(this)">add to cart</button>
+                    
+                </div>
+            </div>
+            <div class="content">
+                <h3 class="title">simple desk</h3>
+                <div class="price"> $72.99  </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img class="img" src="../static/images/balco.jpg" alt="">
+                <div class="icons">
+                    <button  onclick="toggleHeartIcon(this)" class=" AddToFavButton" ><i class="fas fa-heart "></i></button>
+                    <button   class="cart-btn addcart" onclick="addToCart(this)">add to cart</button>
+                </div>
+            </div>
+            <div class="content">
+                <h3 class="title">garden chair</h3>
+                <div class="price"> $82.99  </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img class="img" src="../static/images/3.jpeg" alt="">
+                <div class="icons">
+                    <button  onclick="toggleHeartIcon(this)" class=" AddToFavButton" ><i class="fas fa-heart "></i></button>
+                    <button  class="cart-btn addcart" onclick="addToCart(this)">add to cart</button>
+                </div>
+            </div>
+            <div class="content">
+                <h3 class="title">Comfy Chair</h3>
+                <div class="price"> $100.99  </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img class="img" src="../static/images/sofa.jpg" alt="">
+                <div class="icons">
+                    <button  onclick="toggleHeartIcon(this)" class=" AddToFavButton" ><i class="fas fa-heart "></i></button>
+                    <button  class="cart-btn addcart" onclick="addToCart(this)">add to cart</button>
+                </div>
+            </div>
+            <div class="content">
+                <h3 class="title">Sofa beige</h3>
+                <div class="price"> $232.99 </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="image">
+                <img class="img" src="../static/images/etage.jpg" alt="">
+                <div class="icons">
+                    <button  onclick="toggleHeartIcon(this)" class=" AddToFavButton" ><i class="fas fa-heart "></i></button>
+                    <button  class="cart-btn addcart" onclick="addToCart(this)">add to cart</button>
+                </div>
+            </div>
+            <div class="content">
+                <h3 class="title">Etagere</h3>
+                <div class="price"> $75.89  </div>
+            </div>
+           
+        </div>
+    </div>
+
+    <script>
+     function toggleHeartIcon(button) {
+        // Get the heart icon element
+        var heartIcon = button.querySelector('.fas.fa-heart');
+
+        // Toggle the heart icon with a check icon
+        heartIcon.classList.toggle('fa-heart');
+        heartIcon.classList.toggle('fa-check');
+
+        // Wait for 3 seconds before toggling the icon back to heart
+        setTimeout(function() {
+            heartIcon.classList.toggle('fa-check');
+            heartIcon.classList.toggle('fa-heart');
+        }, 700);
+        }
+
+
+
+        function addToCart(button) {
+          button.innerHTML = "<i class='material-icons'>check</i>";
+          setTimeout(function() {
+            button.innerHTML = "add to cart";
+          }, 700);
+        }
+
+      </script>
+    <div class="contactstore">
+        <span class="subsc">
+            <h6>Subscribe to our newsletter</h6>
+            <form class="send" action="{% url 'store' %}" method="POST">
+                {% csrf_token %}
+                <label id="send" for="email">Email address*</label><br>
+                <input type="text" id="email" name="email" placeholder="Enter your email" autocapitalize="none">
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </span>
+        <span class="gmail">
+            <h1>Contacts</h1>
+            <h2 >safaehasnassi@gmail.com</h2>
+        </span>
+        <span class="address">
+                <h1>address</h1>
+                <h2>12398 Haymedi street <br> AGADIR</h2>
+        </span>
+    
+     </div>
+     
+
+</section>
+
+          
+ <script type="text/javascript" src="{% static 'js/main.js' %}" async></script>
+</body>
+</html>
+
