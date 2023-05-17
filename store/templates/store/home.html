@@ -1,0 +1,148 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comfortable Home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="data:;base64,iVBORw0KGgo=">
+
+    <!-- custom css file link  -->
+   
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header>
+
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+
+    <a href="#" class="logo">Comfy</a>
+
+    <nav class="navbar">
+        <a href="{% url 'home'%}">home</a>
+        <a href="{% url 'store'%}">Store</a>
+        <a href="{% url 'customercare'%}">Customer care</a>
+        <a href="{% url 'contacts' %}">Contacts</a>
+        <a href="{% url 'shoppingbag' %}">Shopping bag (<span id="cartnum-items">0</span>) </a>
+    </nav>
+
+  
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="content">
+        <h1>You deserve to be comfortable</h1>
+        <p>We don't just aim for quality; it's a part of our daily routine and we strive to uphold it every day.</p>
+        <a href="#" class="btn" > Our store</a>
+    </div>
+    
+</section>
+
+
+<!-- prodcuts section starts  -->
+
+<section class="products">
+    <img class="first"src="../static/images/2.jpeg">
+    <button class="btn1"></button>
+    <img class="second"src="../static/images/pellini.webp">
+    <img class="third"src="../static/images/table.avif">
+</section>
+
+<section class="content2" id="content2">
+    <div class="content">
+    <h1 id="h2">Who We Are</h1>
+    <h3 id="h3">It's not just <br>furniture - it's <br>our passion</h3>
+    <div id="par">
+        <div>
+         We have made quality our habit. It’s not 
+            something that 
+            <p> we just strive for – we live by this principle every day. </p>
+        <p> While most of the things about the creative process will </p>
+        <br>
+        <p>be forgotten, the 
+            excellence of our products and </p>services will be remembered.
+        </div>
+    </div> 
+    </div>
+</section>
+<section class="content3" id="content3">
+<section class="content">
+    <h2 id="h2">OUR CREDO</h2>
+    <h3 id="h3">Comfort <br>Beauty <br>Versatility</h3>
+    <p id="par">We have made quality our habit. It’s not something 
+    </br>that we just strive for – we live by this principle every day.</p>
+    <img class="img4" src="../static/images/lampe.avif">
+    
+</section>
+</section>
+
+<section class="form" id="form">
+    <div class="h">
+    <h2 id="h1">Have a question?</h2>
+    <h1 id="h2">Left your e-mail and we will contact you soon</h1>
+</div>
+    <section class="enter">
+        <form  action="{% url 'home'%}" method="POST">
+            {% csrf_token %}
+        <input type="text" id="fname" name="fname" placeholder="Your first name"><br>
+        <input type="text" id="lname" name="lname" placeholder="Your last name"><br>
+        <input type="text" id="email" name="email" placeholder="example@mail.com"><br>
+        <input type="text" id="mess" name="fname" placeholder="Enter your message"><br>
+        <a href="#" class="btn" >Contact me</a>
+    </form>
+    </section>
+
+</section>
+
+<div>
+    <img id="img5" src="../static/images/END2.jpg">
+</div>
+
+
+<section id="btn" class="shopping2">
+    <h1 >Shopping Cart</h1>
+    <h2 >Store / Shopping cart</h2>
+    <a href="{% url 'store' %}"><button  type="button" class="btn" >Browse Store</button></a>
+   </section>
+
+
+   <div class="shopping">
+    <span class="subsc">
+        <h6>Subscribe to our newsletter</h6>
+        <form class="send" action="{% url 'home'%}" method="POST">
+            {% csrf_token %}
+            <label id="send" for="email">Email address*</label><br>
+            <input type="text" id="email" name="email" placeholder="Enter your email"autocapitalize="none">
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </span>
+    <span class="gmail">
+        <h1>Contacts</h1>
+        <h2 >safaehasnassi@gmail.com</h2>
+    </span>
+    <span class="address">
+            <h1>address</h1>
+            <h2>12398 Haymedi street <br> AGADIR</h2>
+    </span>
+
+ </div>
+    
+
+<script type="text/javascript" src="{% static 'js/main.js' %}"async></script>
+
+</body>
+</html>

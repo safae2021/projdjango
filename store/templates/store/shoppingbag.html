@@ -1,0 +1,156 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comfortable Home</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="data:;base64,iVBORw0KGgo=">
+    
+    <!-- custom css file link  -->
+
+</head>
+<body onload="displayCartItems()">
+
+    <header>
+
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+    
+        <a href="#" class="logo">Comfy</a>
+    
+        <nav class="navbar">
+            <a href="{% url 'home'%}">home</a>
+            <a href="{% url 'store'%}">Store</a>
+            <a href="{% url 'customercare'%}">Customer care</a>
+            <a href="{% url 'contacts' %}">Contacts</a>
+            <a href="{% url 'shoppingbag' %}">Shopping bag (<span id="cartnum-items">0</span>) </a>
+        </nav>
+    
+      
+    </header>
+
+
+    <section class="contentstore" id="contentstore">
+        <div>
+        <h1 id="h2">IT'S EASY</h1>
+        <h3 id="h3">Create your  <br>space with our  <br>furniture</h3>
+        <div id="par">
+            <div>
+                We have made quality our habit. It’s not something that 
+                <p> we just strive for – we live by this principle every day.  </p>
+            <p> While most of the things about the creative process will </p>
+            <br>
+            <p>be forgotten, the 
+                excellence of our products and </p>services will be remembered.
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="content-section" id="form">
+      
+        <h1>Shopping Cart</h1>
+        <h2>Store / Shopping cart</h2>
+        <div class="cart-row">
+            <span class="cart-item1 cart-header cart-column">ITEM</span>
+            <span class="cart-price1 cart-header cart-column">PRICE</span>
+            <span class="cart-quantity1 cart-header cart-column">QUANTITY</span>
+        </div>
+        
+        <div id="cart-items"></div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+
+        <button class="btn-purchase" type="button" id="purbtn">PURCHASE</button>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <!-- Modal content -->
+            <div class="modal-content">
+              <form id="checkout-form"   action="{% url 'shoppingbag' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="items" id="items" value="">
+                <h2>Shipping Information</h2>
+                <div class="form-group">
+                  <label for="email">Email Address:</label>
+                  <input type="email" name="email" id="email" data-required data-section="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="name">Full Name:</label>
+                  <input type="text" name="name" id="name" data-required required>
+                </div>
+                <div class="form-group">
+                  <label for="address">Shipping Address:</label>
+                  <input type="text" name="address" id="address" data-required required>
+                </div>
+                <div class="form-group">
+                  <label for="city">City:</label>
+                  <input type="text" name="city" id="city" data-required data-section="city" required >
+                </div>
+                <div class="form-group">
+                  <label for="zip">Zip Code:</label>
+                  <input type="text" name="zip_code" id="zip" data-required required>
+                </div>
+                <div id="payment-info" style="display:none;">
+                  <h2>Payment Information</h2>
+                  <div class="form-group">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" name="card_number" id="card-number" data-required data-section="cardnum" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="card-name">Name on Card:</label>
+                    <input type="text" name="card_name" id="card-name" data-required data-section="cardname" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="card-expiration">Expiration Date:</label>
+                    <input type="text" name="card_expiration" id="card-expiration" placeholder="mm/yy" data-section="exp" data-required required>
+                  </div>
+                  <div class="form-group">
+                    <label for="card-security">Security Code:</label>
+                    <input type="text" name="card_security" id="card-security" data-required data-section="scur" required>
+                  </div>
+                </div>
+                
+                <button type="button" onclick="togglePaymentInfo()" class="btn-submit" id="checkout-form-submit" >Continue to Payment</button>
+                <button type="submit" name="checkout_submit" class="btn-submit" style="display:none;" id="data">Complete Purchase</button>
+                
+              </form>
+            </div>
+          </div>
+    </section>
+
+  
+       <div class="shopping">
+        <span class="subsc">
+          <h6>Subscribe to our newsletter</h6>
+          <form class="send" action="{% url 'shoppingbag' %}" method="POST">
+              {% csrf_token %}
+              <label id="send" for="email">Email address*</label><br>
+              <input type="text" id="email" name="email" placeholder="Enter your email"autocapitalize="none">
+              <button type="submit" name= "subscribe_form" class="btn">Submit</button>
+          </form>
+      </span>
+        <span class="gmail">
+            <h1>Contacts</h1>
+            <h2 >safaehasnassi@gmail.com</h2>
+        </span>
+        <span class="address">
+                <h1>address</h1>
+                <h2>12398 Haymedi street <br> AGADIR</h2>
+        </span>
+    
+     </div>
+     
+          <script type="text/javascript" src="{% static 'js/main.js' %}" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"async> // Get the modal
+            </script>
+    </body>
+    </html>
